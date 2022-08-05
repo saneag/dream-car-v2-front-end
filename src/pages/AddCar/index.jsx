@@ -168,7 +168,7 @@ function AddCar() {
                     >
 
                         <motion.img
-                            src={`${REACT_APP_API_URL}${imageUrl}`}
+                            src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
                             alt='car'
                             className={styles.car_image}
                         />
