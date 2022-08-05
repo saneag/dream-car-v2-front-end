@@ -1,0 +1,21 @@
+.sort_options {
+    background-color: white;
+    width: 180px;
+    height: fit-content;
+    position: absolute;
+    z-index: 2;
+    margin-top: 10px;
+    border-radius: 10px;
+
+    li {
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 10px;
+        text-transform: capitalize;
+    }
+
+    .active {
+        background-color: #FDA634;
+    }
+}

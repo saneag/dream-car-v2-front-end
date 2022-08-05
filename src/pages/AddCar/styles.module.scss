@@ -1,0 +1,103 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+
+    .add_car_form {
+        width: 22rem;
+        padding: 20px 0;
+        background-color: #474E5C;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (min-width: 768px) {
+            width: 30rem;
+        }
+
+        .caption {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+
+            .input_field {
+                input[type="file"] {
+                    display: none;
+                }
+
+                label {
+                    margin-top: 10px;
+                    color: white;
+                    font-size: 1.4rem;
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            .file_upload {
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                width: 200px;
+                height: 120px;
+                border: 2px dotted gray;
+            }
+
+            .submit_btn {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 18px;
+                padding: 10px 30px;
+                border-radius: 10px;
+                border: 1px solid transparent;
+                text-align: center;
+                margin: 25px 35px;
+
+                &:hover {
+                    color: #FDA634;
+                    background-color: transparent;
+                    border: 1px solid #FDA634;
+                }
+            }
+        }
+    }
+
+    .uploaded_image {
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        img {
+            width: 90%;
+            border-radius: 10px;
+        }
+
+        .delete {
+            color: red;
+            font-size: 1.4em;
+            position: absolute;
+            top: 10px;
+            right: 35px;
+            background-color: #000;
+            padding: 5px 10px;
+        }
+    }
+}

@@ -1,0 +1,157 @@
+.sign_in_page {
+    height: calc(100vh - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form {
+        margin-top: 50px;
+        width: 22rem;
+        height: 30rem;
+        background-color: #474E5C;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (min-width: 768px) {
+            width: 30rem;
+        }
+
+        .input_field {
+            position: relative;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 10px;
+
+            label {
+                color: $yellow;
+                font-size: 1.4rem;
+                font-weight: bold;
+                width: fit-content;
+            }
+
+            input {
+                width: 100%;
+                height: 40px;
+                border-radius: 10px;
+                padding: 0 10px;
+                font-size: 1.4rem;
+                color: white;
+                background-color: transparent;
+                transition: all 0.3s ease;
+
+                &:-webkit-autofill,
+                &:-webkit-autofill:focus {
+                    transition: background-color 600000s 0s, color 600000s 0s;
+                }
+
+                &[data-autocompleted] {
+                    background-color: transparent !important;
+                }
+
+                &~.border {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: $yellow;
+                }
+
+                &:focus~.border {
+                    width: 100%;
+                    transition: 0.5s;
+                }
+            }
+
+            .checkbox_input {
+                display: flex;
+                align-items: center;
+                width: 18rem;
+                justify-content: flex-start;
+
+                input[type=checkbox] {
+                    width: 0;
+                    height: 0;
+                    -webkit-appearance: none;
+                    background-color: #fafafa;
+                    border: 1px solid #cacece;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+                    padding: 9px;
+                    border-radius: 3px;
+                    display: inline-block;
+                    position: relative;
+                    margin-right: 10px;
+
+                    &:active,
+                    &:checked :active {
+                        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+                    }
+
+                    &:checked:after {
+                        content: '\2714';
+                        font-size: 14px;
+                        position: absolute;
+                        top: 0px;
+                        left: 3px;
+                        color: $yellow;
+                    }
+                }
+            }
+
+            .show_pass {
+                position: absolute;
+                right: -10px;
+                top: 50px;
+                color: $yellow;
+                font-size: 1.3rem;
+                cursor: pointer;
+                transition: 0.3s;
+                padding: 10px;
+
+                &:hover {
+                    color: rgb(161, 45, 45);
+                }
+            }
+        }
+
+        .sign_in_btn {
+            font-family: $OpenSans;
+            font-size: 18px;
+            padding: 10px 30px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+
+            &:hover {
+                color: $yellow;
+                background-color: transparent;
+                border: 1px solid $yellow;
+            }
+        }
+
+        .error_message {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            color: red;
+        }
+    }
+}
+
+.sign_up_page {
+    @media screen and (max-height: 768px) {
+        margin: 60px;
+    }
+
+    .form {
+        height: 40rem;
+    }
+
+    .sign_in_btn {
+        margin-top: 20px;
+    }
+}

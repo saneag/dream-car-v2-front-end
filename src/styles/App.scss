@@ -1,0 +1,98 @@
+@import '_variables';
+@import '_resets';
+@import '_header';
+@import '_home';
+@import '_footer';
+@import '_signin';
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #282C34FF;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
+
+.App {
+    min-height: 100vh;
+    font-family: 'Zen Kurenaido', sans-serif;
+    transition: all 0.5s ease;
+    user-select: none;
+
+    #tc_img {
+        transition: all 0.3s ease;
+    }
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+#dark {
+    background-color: $primary-color;
+
+    #tc_img {
+        transform: rotate(0deg);
+    }
+
+    .search_icon,
+    .delete_icon {
+        color: $primary-color;
+    }
+}
+
+#light {
+    background-color: #fff;
+
+    #tc_img {
+        transform: rotate(180deg);
+    }
+
+    .search_input {
+        background-color: $primary-color;
+        caret-color: $yellow;
+        color: white;
+    }
+
+    .sort_title {
+        color: $primary-color;
+    }
+
+    .pagination {
+        li {
+            a {
+                color: $primary-color;
+
+                &:hover {
+                    border: 2px solid #FFA7A9;
+                }
+            }
+        }
+    }
+
+    .cars_gallery,
+    footer,
+    #alex,
+    #danu,
+    #ion {
+        p {
+            color: $primary-color;
+        }
+    }
+}

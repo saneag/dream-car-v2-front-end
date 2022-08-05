@@ -1,0 +1,83 @@
+@import '../../styles/_variables';
+
+.main {
+    padding-top: 50px;
+    margin: 0;
+
+    .contact_page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .form {
+            margin-top: 80px;
+            width: 30rem;
+            height: 35rem;
+            background-color: #474E5C;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            @media screen and (max-height: 768px) {
+                margin-top: 50px;
+            }
+
+            .input_field {
+                position: relative;
+                min-height: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                gap: 10px;
+
+                label {
+                    color: $yellow;
+                    font-size: 1.4rem;
+                    font-weight: bold;
+                    width: fit-content;
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 10px;
+                    padding: 0 10px;
+                    font-size: 1.4rem;
+                    color: $yellow;
+                    background-color: transparent;
+                    transition: all 0.3s ease;
+                }
+
+                textarea {
+                    border-radius: 10px;
+                    font-size: 18px;
+                    resize: none;
+                    width: 290px;
+                    height: 300px;
+                    padding: 10px;
+                    font-family: $OpenSans;
+                    margin-bottom: 20px;
+                    background-color: transparent;
+                    border: 2px solid $yellow;
+                    color: white;
+                }
+            }
+
+            .send_btn {
+                font-family: $OpenSans;
+                font-size: 18px;
+                padding: 10px 30px;
+                border-radius: 10px;
+                border: 1px solid transparent;
+
+                &:hover {
+                    color: $yellow;
+                    background-color: transparent;
+                    border: 1px solid $yellow;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+@import '../../styles/_variables';
+
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+        background-color: #282C34;
+        border-radius: 20px;
+        transition: .3s ease;
+        width: 70%;
+        padding: 50px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+
+        @media screen and (orientation:landscape) {
+            padding: 20px 0;
+        }
+
+        li:not(:first-of-type) {
+            margin: 0;
+        }
+
+        li {
+            font-size: 1.5rem;
+
+            @media screen and (orientation:landscape) {
+                font-size: 1.2rem;
+            }
+        }
+
+        .auth_buttons {
+            display: flex;
+            flex-direction: column;
+
+            .auth_btn {
+                font-size: 2em;
+
+                @media screen and (orientation:landscape) {
+                    font-size: 1.5rem;
+                }
+
+                &.sign_up {
+                    margin: 20px 0 0;
+                }
+            }
+        }
+    }
+}

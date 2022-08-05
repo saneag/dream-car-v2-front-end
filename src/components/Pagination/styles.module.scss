@@ -1,0 +1,43 @@
+.root {
+    max-width: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px auto 20px;
+
+    li {
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #FDA634;
+
+            &:hover {
+                border: 2px solid #F07427;
+            }
+        }
+    }
+
+    :global {
+        .disabled {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 30px;
+            color: gray;
+            font-weight: bold;
+            border: 2px solid gray;
+        }
+
+        .active {
+            position: relative;
+            bottom: 5px
+        }
+    }
+}

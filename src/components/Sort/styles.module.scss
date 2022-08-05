@@ -1,0 +1,26 @@
+.sort_div {
+    width: 60%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &>div {
+        position: relative;
+        width: fit-content;
+
+        .sort_title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            z-index: 3;
+            cursor: pointer;
+            text-transform: capitalize;
+
+            .sort_arrow {
+                color: #FDA634;
+                margin-left: 5px;
+            }
+        }
+    }
+}

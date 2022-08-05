@@ -1,0 +1,43 @@
+.input_field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    input {
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+        padding: 5px;
+        width: 200px;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    label {
+        margin-top: 10px;
+        color: white;
+        font-size: 1.4rem;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    .delete_icon {
+        padding: 10px;
+        color: white;
+        position: absolute;
+        right: 0px;
+        top: 30px;
+        cursor: pointer;
+    }
+}

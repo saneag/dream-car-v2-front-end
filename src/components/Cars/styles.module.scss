@@ -1,0 +1,88 @@
+.root {
+    display: flex;
+    flex-direction: column;
+
+    p {
+        font-size: 1.1em;
+        line-height: 30px;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+
+        .model {
+            font-style: italic;
+            font-weight: normal;
+        }
+    }
+
+    .image {
+        width: 300px;
+        height: 169px;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .info {
+        position: relative;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2em;
+        cursor: pointer;
+
+        .info_text {
+            background: rgba(0, 0, 0, 0.315);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: absolute;
+            bottom: 0px;
+            border-radius: 0 0 10px 10px;
+
+            .year {
+                color: rgb(255, 145, 0);
+            }
+
+            .cash {
+                color: #8DC351;
+            }
+        }
+    }
+
+    .edit_btns {
+        @extend .info;
+        cursor: default;
+        font-size: 1.4em;
+
+        &>div {
+            background: rgba(0, 0, 0, 0.315);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            position: absolute;
+            width: 30%;
+            height: 30px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            right: 0;
+            top: -160px;
+
+            .delete {
+                color: rgba(255, 0, 0, 0.7);
+                cursor: pointer;
+            }
+
+            .edit {
+                color: rgba(0, 132, 255, 0.7);
+                cursor: pointer;
+            }
+
+        }
+
+    }
+}
