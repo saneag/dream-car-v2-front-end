@@ -58,7 +58,7 @@ function Car(car) {
                     transition={{ duration: 1 }}>
                     <div>
                         <motion.img
-                            src={`http://localhost:5000/${car.imageUrl}`}
+                            src={`${REACT_APP_API_URL}${car.imageUrl}`}
                             className={styles.image}
                             animate={{ opacity: 1 }}></motion.img>
                         {showEditAdmin && <ShowHelpBtns carID={car._id} />}
