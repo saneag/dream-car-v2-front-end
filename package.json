@@ -26,6 +26,7 @@
     "react-responsive-pagination": "^1.5.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.5",
     "sass": "^1.54.0",
     "util": "^0.12.4",
     "web-vitals": "^2.1.4"
