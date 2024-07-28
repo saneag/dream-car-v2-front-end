@@ -10,6 +10,8 @@ function SignUp() {
     const dispatch = useDispatch();
     const isAuth = useSelector(isAuthenticated);
 
+    const [isLoading, setIsLoading] = React.useState(false);
+
     const {
         register,
         handleSubmit,
@@ -26,6 +28,7 @@ function SignUp() {
     });
 
     const onSubmit = async (values) => {
+        setIsLoading(true);
         const data = await dispatch(fetchRegister(values));
 
         if (data && data.payload?.message) {
@@ -39,6 +42,8 @@ function SignUp() {
         if (data && data.payload) {
             localStorage.setItem('token', data.payload.token);
         }
+
+        setIsLoading(false);
     };
 
     if (isAuth) {
@@ -101,9 +106,11 @@ function SignUp() {
                     }}
                 />
                 <button
-                    className={`sign_in_btn ${isValid ? 'active' : 'disabled'}`}
+                    className={`sign_in_btn ${
+                        isValid || isLoading ? 'active' : 'disabled'
+                    }`}
                     type='submit'
-                    disabled={!isValid}>
+                    disabled={!isValid || isLoading}>
                     Sign up
                 </button>
             </form>

@@ -9,6 +9,7 @@ import { fetchAuth, isAuthenticated } from '../redux/slices/userAuthSlice';
 function SignIn() {
     const dispatch = useDispatch();
     const isAuth = useSelector(isAuthenticated);
+    const [isLoading, setIsLoading] = React.useState(false);
 
     const {
         register,
@@ -23,6 +24,7 @@ function SignIn() {
     });
 
     const onSubmit = async (values) => {
+        setIsLoading(true);
         const data = await dispatch(fetchAuth(values));
 
         if (data && data.payload?.message) {
@@ -36,6 +38,8 @@ function SignIn() {
         if (data && data.payload) {
             localStorage.setItem('token', data.payload.token);
         }
+
+        setIsLoading(false);
     };
 
     if (isAuth) {
@@ -70,9 +74,11 @@ function SignIn() {
                     inputType='password'
                 />
                 <button
-                    className={`sign_in_btn ${isValid ? 'active' : 'disabled'}`}
+                    className={`sign_in_btn ${
+                        isValid || isLoading ? 'active' : 'disabled'
+                    }`}
                     type='submit'
-                    disabled={!isValid}>
+                    disabled={!isValid || isLoading}>
                     Sign in
                 </button>
             </form>
