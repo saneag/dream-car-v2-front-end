@@ -1,26 +1,29 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { setShowModal, setSelectedCar } from '../../redux/slices/showModalCarSlice'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    setSelectedCar,
+    setShowModal,
+} from '../../redux/slices/showModalCarSlice';
 
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
-import convertPrice from '../../utils/convertPrice'
+import convertPrice from '../../utils/convertPrice';
 
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 function Modal() {
-    const dispatch = useDispatch()
-    const selectedCar = useSelector(state => state.showModalCar.selectedCar)
-    const showModal = useSelector(state => state.showModalCar.showModal)
+    const dispatch = useDispatch();
+    const selectedCar = useSelector((state) => state.showModalCar.selectedCar);
+    const showModal = useSelector((state) => state.showModalCar.showModal);
 
     const handleClick = () => {
-        dispatch(setShowModal(!showModal))
-        dispatch(setSelectedCar(null))
-    }
+        dispatch(setShowModal(!showModal));
+        dispatch(setSelectedCar(null));
+    };
 
-    const price = (value) => convertPrice(value)
+    const price = (value) => convertPrice(value);
 
-    const [deviceType, setDeviceType] = React.useState("");
+    const [deviceType, setDeviceType] = React.useState('');
 
     React.useEffect(() => {
         if (
@@ -28,62 +31,82 @@ function Modal() {
                 navigator.userAgent
             )
         ) {
-            setDeviceType("Mobile");
+            setDeviceType('Mobile');
         } else {
-            setDeviceType("Desktop");
+            setDeviceType('Desktop');
         }
     }, []);
 
-    const closeModal = e => {
+    const closeModal = (e) => {
         if (deviceType !== 'Mobile') {
-            e.stopPropagation()
+            e.stopPropagation();
         }
-    }
+    };
 
     return (
-        <motion.div className={styles.backdrop} onClick={handleClick}
+        <motion.div
+            className={styles.backdrop}
+            onClick={handleClick}
             initial={{ opacity: 0, scale: 1 }}
             animate={{ opacity: 1 }}>
-            <motion.div className={styles.modal_content}
-                onClick={closeModal}
-            >
-                <motion.img src={`${process.env.REACT_APP_API_URL}${selectedCar.imageUrl}`}
+            <motion.div
+                className={styles.modal_content}
+                onClick={closeModal}>
+                <motion.img
+                    src={`${process.env.REACT_APP_API_URL}${selectedCar.imageUrl}`}
                     initial={{ y: '-100vh' }}
-                    animate={{ y: '0px' }} />
-                <motion.div className={styles.info}
+                    animate={{ y: '0px' }}
+                />
+                <motion.div
+                    className={styles.info}
                     initial={{ x: '100vw' }}
                     animate={{ x: '0px' }}>
                     <div>
-                        {
-                            Object.keys(selectedCar)
-                                .filter(key => key !== 'imageUrl' && key !== '_id' && key !== '__v' && key !== 'added_by_id')
-                                .map(key => {
-                                    return <p key={key}><span>{key.replace(/_/, ' ')} :</span></p>
-                                })
-                        }
+                        {Object.keys(selectedCar)
+                            .filter(
+                                (key) =>
+                                    key !== 'imageUrl' &&
+                                    key !== '_id' &&
+                                    key !== '__v' &&
+                                    key !== 'added_by_id'
+                            )
+                            .map((key) => {
+                                return (
+                                    <p key={key}>
+                                        <span>{key.replace(/_/, ' ')} :</span>
+                                    </p>
+                                );
+                            })}
                     </div>
                     <div>
-                        {
-                            Object.keys(selectedCar)
-                                .filter(key => key !== 'imageUrl' && key !== '_id' && key !== '__v' && key !== 'added_by_id')
-                                .map(key => {
-                                    return <p key={selectedCar[key]}>
+                        {Object.keys(selectedCar)
+                            .filter(
+                                (key) =>
+                                    key !== 'imageUrl' &&
+                                    key !== '_id' &&
+                                    key !== '__v' &&
+                                    key !== 'added_by_id'
+                            )
+                            .map((key) => {
+                                return (
+                                    <p key={selectedCar[key]}>
                                         <span>
-                                            {
-                                                key === 'engine_capacity' ? `${selectedCar[key]} ml` :
-                                                    key === 'engine_power' ? `${selectedCar[key]} hp` :
-                                                        key === 'price' ? `$ ${price(selectedCar[key])}` :
-                                                            selectedCar[key]
-                                            }
+                                            {key === 'engine_capacity'
+                                                ? `${selectedCar[key]} ml`
+                                                : key === 'engine_power'
+                                                ? `${selectedCar[key]} hp`
+                                                : key === 'price'
+                                                ? `$ ${price(selectedCar[key])}`
+                                                : selectedCar[key]}
                                         </span>
                                     </p>
-                                })
-                        }
+                                );
+                            })}
                     </div>
                 </motion.div>
             </motion.div>
         </motion.div>
-    )
+    );
 }
 
-export default React.memo(Modal)
+export default React.memo(Modal);

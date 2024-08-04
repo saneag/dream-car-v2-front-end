@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { setTheme } from '../redux/slices/changeThemeSlice'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import { setTheme } from '../redux/slices/changeThemeSlice';
 
-import NavBarLink from './NavBarLink'
+import NavBarLink from './NavBarLink';
 
-import themeIcon from '../assets/color_change.webp'
-import SignIn from '../pages/SignIn'
-import SignUp from '../pages/SignUp'
-import BurgerMenu from '../components/BurgerMenu'
+import themeIcon from '../assets/color_change.webp';
+import BurgerMenu from '../components/BurgerMenu';
+import SignIn from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
 
-import { isAuthenticated, logout } from '../redux/slices/userAuthSlice'
+import { isAuthenticated, logout } from '../redux/slices/userAuthSlice';
 
 function Header() {
     const dispatch = useDispatch()
@@ -30,8 +30,7 @@ function Header() {
     const onClick = () => {
         if (isAuth && window.confirm('Are you sure you want to logout?')) {
             dispatch(logout())
-            window.localStorage.removeItem('token')
-            window.sessionStorage.removeItem('token')
+            localStorage.removeItem('token')
         }
     }
 

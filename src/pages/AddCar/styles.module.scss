@@ -10,7 +10,7 @@
     .add_car_form {
         width: 22rem;
         padding: 20px 0;
-        background-color: #474E5C;
+        background-color: #474e5c;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
@@ -35,7 +35,7 @@
             gap: 20px;
 
             .input_field {
-                input[type="file"] {
+                input[type='file'] {
                     display: none;
                 }
 
@@ -72,9 +72,9 @@
                 margin: 25px 35px;
 
                 &:hover {
-                    color: #FDA634;
+                    color: #fda634;
                     background-color: transparent;
-                    border: 1px solid #FDA634;
+                    border: 1px solid #fda634;
                 }
             }
         }

@@ -1,32 +1,43 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { Controller } from 'react-hook-form';
 
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
-function ShowInputs({ value, states, options }) {
+function ShowInputs({ form, name }) {
     return (
-        <div key={value} className={styles.input_field}>
-            <label>{value.replace(/_/, ' ')}</label>
-            <input
-                value={states}
-                type={
-                    value === 'year'
-                        || value === 'engine_capacity'
-                        || value === 'engine_power'
-                        || value === 'price'
-                        ? 'number' : 'text'
-                }
-                onChange={e => options(e.target.value)}
+        <div className={styles.input_field}>
+            <label>{name.replace(/_/, ' ')}</label>
+            <Controller
+                name={name}
+                control={form.control}
+                render={({ field }) => (
+                    <>
+                        <input
+                            value={field.value}
+                            type={
+                                name === 'year' ||
+                                name === 'engine_capacity' ||
+                                name === 'engine_power' ||
+                                name === 'price'
+                                    ? 'number'
+                                    : 'text'
+                            }
+                            onChange={field.onChange}
+                        />
+                        {field.value && (
+                            <FontAwesomeIcon
+                                icon={faXmark}
+                                className={styles.delete_icon}
+                                onClick={() => form.setValue(name, '')}
+                            />
+                        )}
+                    </>
+                )}
             />
-            {states &&
-                <FontAwesomeIcon
-                    icon={faXmark}
-                    className={styles.delete_icon}
-                    onClick={() => options('')}
-                />}
         </div>
-    )
+    );
 }
 
-export default React.memo(ShowInputs)
+export default React.memo(ShowInputs);

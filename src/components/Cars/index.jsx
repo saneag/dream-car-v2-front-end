@@ -1,17 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { setSelectedCar } from '../../redux/slices/showModalCarSlice'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark, faPen } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { setSelectedCar } from '../../redux/slices/showModalCarSlice';
 
-import axios from '../../utils/axios'
+import axios from '../../utils/axios';
 
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
-import convertPrice from '../../utils/convertPrice'
+import convertPrice from '../../utils/convertPrice';
 
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 function Car(car) {
     const dispatch = useDispatch()
